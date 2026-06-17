@@ -1,0 +1,65 @@
+.skills-section { background: var(--bg2); z-index: 1; }
+
+.tab-btns {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px;
+}
+.tab-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: 10px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text3); font-family: var(--font); font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all var(--transition);
+  .tab-icon { font-size: 16px; }
+  &:hover { border-color: var(--cat-color, var(--accent)); color: var(--text); }
+  &.active {
+    border-color: var(--cat-color, var(--accent));
+    background: rgba(0,0,0,0.4);
+    color: var(--text);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+}
+
+.skills-panel {
+  display: none; flex-direction: column; gap: 20px; margin-bottom: 48px;
+  &.visible { display: flex; }
+}
+
+.skill-row { }
+.skill-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+}
+.skill-name-wrap { display: flex; align-items: center; gap: 10px; }
+.skill-name { font-size: 14px; font-weight: 500; color: var(--text); }
+.skill-tag {
+  padding: 2px 8px; font-family: var(--mono); font-size: 10px;
+  background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2);
+  border-radius: 8px; color: var(--accent);
+}
+.skill-pct { font-family: var(--mono); font-size: 13px; color: var(--text3); }
+
+.bar-track {
+  height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;
+}
+.bar-fill {
+  height: 100%; border-radius: 3px; position: relative;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.bar-glow {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 10px; height: 10px; border-radius: 50%; filter: blur(4px); opacity: 0.8;
+}
+
+.all-skills { margin-top: 20px; }
+.as-label {
+  font-family: var(--mono); font-size: 11px; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+}
+.as-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.as-chip {
+  padding: 6px 14px; background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; font-family: var(--mono); font-size: 11px; color: var(--text3);
+  transition: all var(--transition); cursor: default;
+  &:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,255,136,0.05); transform: translateY(-2px); }
+}
+
+@media (max-width: 768px) { .tab-btns { gap: 8px; } .tab-btn { padding: 8px 14px; font-size: 12px; } }

@@ -1,0 +1,94 @@
+<section class="section contact-section" id="contact">
+  <div class="sec-tag">Get in touch</div>
+  <h2 class="sec-title">Let's <span>Connect</span></h2>
+
+  <div class="contact-grid">
+    <!-- Left -->
+    <div class="contact-left">
+      <p class="contact-intro">
+        I'm currently open to new opportunities — enterprise roles, freelance projects,
+        or interesting collaborations in <span class="hl">.NET Core</span>, <span class="hl">Angular</span>,
+        or <span class="hl">Go</span>. Let's build something great together.
+      </p>
+
+      <div class="contact-items">
+        <a class="contact-item" *ngFor="let c of contacts" [href]="c.href" [style.--c]="c.color">
+          <div class="ci-icon-wrap" [style.background]="c.color + '15'" [style.border-color]="c.color + '30'">
+            {{ c.icon }}
+          </div>
+          <div class="ci-text">
+            <span class="ci-label">{{ c.label }}</span>
+            <span class="ci-value">{{ c.value }}</span>
+          </div>
+          <svg class="ci-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="social-row">
+        <span class="social-label">Find me on</span>
+        <div class="socials">
+          <a *ngFor="let s of socials" [href]="s.href" target="_blank"
+             class="social-btn" [style.--c]="s.color" [title]="s.label">
+            <span [innerHTML]="s.svg"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Terminal-style availability card -->
+      <div class="terminal-card">
+        <div class="term-header">
+          <div class="term-dot red"></div>
+          <div class="term-dot yellow"></div>
+          <div class="term-dot green"></div>
+          <span class="term-title">akshat&#64;portfolio:~</span>
+        </div>
+        <div class="term-body">
+          <div class="term-line"><span class="term-prompt">$</span> status --availability</div>
+          <div class="term-line output"><span class="term-key">availability:</span> <span class="term-val green">open</span></div>
+          <div class="term-line output"><span class="term-key">role:</span> <span class="term-val">.NET Core / Angular / Go</span></div>
+          <div class="term-line output"><span class="term-key">location:</span> <span class="term-val">Ahmedabad, India</span></div>
+          <div class="term-line output"><span class="term-key">response_time:</span> <span class="term-val cyan">within 24h</span></div>
+          <div class="term-line"><span class="term-prompt">$</span> <span class="term-cursor">█</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right - Form -->
+    <div class="contact-right">
+      <div class="form-card">
+        <div class="form-success" *ngIf="sent">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Opening your email client... Thanks for reaching out!
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" [(ngModel)]="form.name" name="fname" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="form.email" name="femail" placeholder="john@company.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" [(ngModel)]="form.subject" name="fsubject" placeholder="Let's work together">
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea [(ngModel)]="form.message" name="fmessage" rows="6"
+            placeholder="Tell me about your project, timeline, and goals..."></textarea>
+        </div>
+
+        <button class="submit-btn" (click)="onSubmit()"
+                [disabled]="!form.name || !form.email || !form.message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send Message
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

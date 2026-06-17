@@ -1,0 +1,36 @@
+<nav class="sidebar">
+  <!-- Logo -->
+  <div class="logo" (click)="scrollTo('home')">
+    <span class="logo-text">A</span>
+    <span class="logo-dot"></span>
+  </div>
+
+  <!-- Nav items -->
+  <ul class="nav-list">
+    <li *ngFor="let item of navItems"
+        class="nav-item"
+        [class.active]="activeSection === item.id"
+        (click)="scrollTo(item.id)"
+        [title]="item.label">
+      <span class="nav-icon" [innerHTML]="item.icon"></span>
+      <span class="nav-tooltip">{{ item.label }}</span>
+      <span class="active-indicator" *ngIf="activeSection === item.id"></span>
+    </li>
+  </ul>
+
+  <!-- Socials -->
+  <div class="sidebar-socials">
+    <a *ngFor="let s of socials" [href]="s.href" target="_blank" [title]="s.label" class="social-link">
+      <span [innerHTML]="s.icon"></span>
+    </a>
+    <div class="social-line"></div>
+  </div>
+</nav>
+
+<!-- Mobile hamburger -->
+<button class="hamburger" (click)="menuOpen=!menuOpen" [class.open]="menuOpen">
+  <span></span><span></span><span></span>
+</button>
+<div class="mobile-menu" [class.open]="menuOpen">
+  <a *ngFor="let item of navItems" (click)="scrollTo(item.id)">{{ item.label }}</a>
+</div>

@@ -1,0 +1,73 @@
+<section class="section about-section" id="about">
+  <div class="sec-tag">Get to know me</div>
+  <h2 class="sec-title">About <span>Me</span></h2>
+
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="about-photo-wrap">
+        <div class="ap-glow"></div>
+        <img src="assets/images/profile.png" alt="Akshat Shah" class="about-photo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="about-photo-fallback">AS</div>
+        <div class="ap-badge">
+          <span class="green-dot"></span> Open to Work
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <div class="about-bio">
+        <p>
+          I'm an <span class="hl">Associate Technology Architect</span> at IT Path Solutions, Ahmedabad — 
+          building high-performance, enterprise-grade web applications with a passion for clean architecture and scalability.
+        </p>
+        <p>
+          My primary stack is <span class="hl">.NET Core 8</span> for robust backend APIs and <span class="hl">Angular 19</span> 
+          for responsive frontends, with growing expertise in <span class="hl">Go (Golang)</span> for high-performance microservices.
+        </p>
+        <p>
+          I've integrated <span class="hl">Mistral AI</span> for intelligent PDF data extraction, implemented 
+          <span class="hl">RBAC</span> security architectures, and delivered systems recognized by AVP leadership for excellence.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-val">📍 Ahmedabad, Gujarat, India</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-val">akshatshah187&#64;gmail.com</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Education</span>
+          <span class="info-val">B.E. IT — CGPA 9.54 / 10</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Phone</span>
+          <span class="info-val">+91 93749 73636</span>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <div class="ts-label">Tech Stack</div>
+        <div class="ts-tags">
+          <span class="ts-tag" *ngFor="let t of techStack" [style.border-color]="t.color+'40'" [style.color]="t.color">
+            {{ t.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat cards -->
+  <div class="stat-cards">
+    <div class="stat-card" *ngFor="let c of cards">
+      <div class="sc-icon">{{ c.icon }}</div>
+      <div class="sc-num">{{ c.num }}</div>
+      <div class="sc-label">{{ c.label }}</div>
+      <div class="sc-sub">{{ c.sub }}</div>
+    </div>
+  </div>
+</section>

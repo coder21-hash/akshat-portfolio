@@ -1,0 +1,62 @@
+<section class="section exp-section" id="experience">
+  <div class="sec-tag">Career Journey</div>
+  <h2 class="sec-title">Work <span>Experience</span></h2>
+
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences; let i=index">
+      <div class="tl-line" [style.background]="exp.color"></div>
+      <div class="tl-dot" [class.active]="exp.current" [style.background]="exp.current ? exp.color : ''" [style.box-shadow]="exp.current ? '0 0 16px ' + exp.color : ''"></div>
+
+      <div class="tl-card" [class.active]="exp.current">
+        <div class="tl-card-glow" [style.background]="'radial-gradient(ellipse at top left, ' + exp.color + '08, transparent 60%)'"></div>
+
+        <div class="tl-header">
+          <div class="tl-title-block">
+            <h3 class="tl-role">{{ exp.role }}</h3>
+            <div class="tl-company">
+              <span class="tl-co-name">{{ exp.company }}</span>
+              <span class="tl-sep">·</span>
+              <span class="tl-location">{{ exp.location }}</span>
+            </div>
+          </div>
+          <div class="tl-meta">
+            <span class="tl-period">{{ exp.period }}</span>
+            <span class="tl-badge" [class.current]="exp.current" [style.border-color]="exp.color + '40'" [style.color]="exp.color">
+              {{ exp.current ? '● ' : '' }}{{ exp.type }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Achievement metrics -->
+        <div class="tl-metrics" *ngIf="exp.achievements.length">
+          <div class="metric" *ngFor="let a of exp.achievements">
+            <span class="metric-num" [style.color]="exp.color">{{ a.metric }}</span>
+            <span class="metric-desc">{{ a.desc }}</span>
+          </div>
+        </div>
+
+        <div class="tl-stack">
+          <span class="stack-tag" *ngFor="let t of exp.stack" [style.border-color]="exp.color + '30'" [style.color]="exp.color">{{ t }}</span>
+        </div>
+
+        <ul class="tl-points">
+          <li *ngFor="let p of exp.points">{{ p }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="edu-block">
+    <div class="edu-icon">🎓</div>
+    <div class="edu-content">
+      <div class="edu-degree">{{ education.degree }}</div>
+      <div class="edu-school">{{ education.school }} · {{ education.location }}</div>
+      <div class="edu-footer">
+        <span class="edu-period">{{ education.period }}</span>
+        <span class="edu-cgpa">CGPA: <strong>{{ education.cgpa }}</strong></span>
+      </div>
+    </div>
+    <div class="edu-badge">9.54</div>
+  </div>
+</section>

@@ -1,0 +1,142 @@
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: var(--nav-w);
+  background: rgba(10,10,10,0.95);
+  border-right: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  z-index: 100;
+  gap: 0;
+}
+
+.logo {
+  position: relative;
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; margin-bottom: 40px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  &:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,136,0.4); }
+}
+.logo-text { font-size: 20px; font-weight: 900; color: #000; line-height: 1; }
+.logo-dot {
+  position: absolute; bottom: -2px; right: -2px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 8px; flex: 1;
+}
+
+.nav-item {
+  position: relative;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px; cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text3);
+
+  &:hover {
+    background: rgba(0,255,136,0.08);
+    color: var(--accent);
+    .nav-tooltip { opacity: 1; transform: translateX(0); pointer-events: all; }
+  }
+  &.active {
+    background: rgba(0,255,136,0.12);
+    color: var(--accent);
+  }
+}
+
+.nav-icon { font-size: 18px; line-height: 1; }
+
+.nav-tooltip {
+  position: absolute;
+  left: calc(100% + 16px);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: var(--mono);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-8px);
+  transition: all 0.2s ease;
+  z-index: 200;
+  &::before {
+    content: '';
+    position: absolute; left: -5px; top: 50%; transform: translateY(-50%);
+    width: 8px; height: 8px; background: var(--bg3);
+    border-left: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.active-indicator {
+  position: absolute;
+  right: -1px; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 24px;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 0 8px rgba(0,255,136,0.6);
+}
+
+.sidebar-socials {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+  margin-top: auto; padding-top: 24px;
+}
+
+.social-link {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px; color: var(--text3);
+  transition: all var(--transition);
+  &:hover { color: var(--accent); background: rgba(0,255,136,0.08); transform: translateY(-2px); }
+}
+
+.social-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+  margin-top: 4px;
+}
+
+.hamburger {
+  display: none;
+  position: fixed; top: 20px; right: 20px;
+  z-index: 200; flex-direction: column; gap: 5px;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px; cursor: pointer;
+  span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 1px; transition: all 0.3s; }
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(10,10,10,0.97);
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 32px; z-index: 150;
+  a { font-size: 28px; font-weight: 700; color: var(--text2); cursor: pointer;
+    transition: color var(--transition); &:hover { color: var(--accent); } }
+  &.open { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .hamburger { display: flex; }
+}

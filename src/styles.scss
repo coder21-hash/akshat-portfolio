@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --accent: #00ff88;
+  --accent2: #00d4ff;
+  --accent3: #7c3aed;
+  --text: #ffffff;
+  --text2: #a0a0a0;
+  --text3: #606060;
+  --border: rgba(255,255,255,0.07);
+  --card: rgba(255,255,255,0.03);
+  --glow: rgba(0,255,136,0.15);
+  --glow2: rgba(0,212,255,0.1);
+  --font: 'Poppins', sans-serif;
+  --mono: 'Fira Code', monospace;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --nav-w: 80px;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+::selection { background:rgba(0,255,136,0.3); color:#fff; }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--accent); border-radius:2px; }
+a { text-decoration:none; color:inherit; }
+
+/* Layout */
+.main-layout {
+  display:flex;
+  min-height:100vh;
+}
+.content-area {
+  margin-left:var(--nav-w);
+  flex:1;
+  position:relative;
+}
+
+/* Section basics */
+.section {
+  min-height:100vh;
+  padding:100px 80px 80px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* Section headings */
+.sec-tag {
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--accent);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  &::before { content:'//'; color:var(--text3); }
+}
+.sec-title {
+  font-size:clamp(36px,5vw,56px);
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:60px;
+  span { color:var(--accent); }
+}
+
+/* Accent line */
+.accent-line {
+  display:inline-block;
+  width:60px; height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:2px;
+  margin-bottom:24px;
+}
+
+/* Glow text */
+.glow {
+  color:var(--accent);
+  text-shadow:0 0 30px rgba(0,255,136,0.5);
+}
+
+/* Tag pill */
+.pill {
+  display:inline-flex; align-items:center;
+  padding:4px 12px;
+  background:rgba(0,255,136,0.08);
+  border:1px solid rgba(0,255,136,0.2);
+  border-radius:20px;
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--accent);
+}
+
+/* Animations */
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes glow-pulse { 0%,100%{box-shadow:0 0 20px rgba(0,255,136,0.2)} 50%{box-shadow:0 0 50px rgba(0,255,136,0.5)} }
+@keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes scan { 0%{top:-100%} 100%{top:100%} }
+
+.fade-up { animation:fadeUp 0.7s ease forwards; }
+@for $i from 1 through 10 { .delay-#{$i} { animation-delay: #{$i * 0.1}s; opacity:0; } }
+
+@media (max-width:1024px) { .section { padding:80px 40px 60px; } }
+@media (max-width:768px) {
+  :root { --nav-w:0px; }
+  .section { padding:80px 24px 60px; }
+  .content-area { margin-left:0; }
+}

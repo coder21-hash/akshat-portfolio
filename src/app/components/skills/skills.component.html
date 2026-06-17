@@ -1,0 +1,49 @@
+<section class="section skills-section" id="skills" #skillsSection>
+  <div class="sec-tag">What I know</div>
+  <h2 class="sec-title">Technical <span>Skills</span></h2>
+
+  <!-- Tab Buttons -->
+  <div class="tab-btns">
+    <button *ngFor="let cat of categories; let i=index"
+            class="tab-btn"
+            [class.active]="activeTab === i"
+            (click)="activeTab = i"
+            [style.--cat-color]="cat.color">
+      <span class="tab-icon">{{ cat.icon }}</span>
+      <span>{{ cat.name }}</span>
+    </button>
+  </div>
+
+  <!-- Active Category Skills -->
+  <div class="skills-panel" *ngFor="let cat of categories; let i=index" [class.visible]="activeTab === i">
+    <div class="skill-row" *ngFor="let s of cat.skills">
+      <div class="skill-header">
+        <div class="skill-name-wrap">
+          <span class="skill-name">{{ s.name }}</span>
+          <span class="skill-tag" *ngIf="s.tag">{{ s.tag }}</span>
+        </div>
+        <span class="skill-pct">{{ animated ? s.pct : 0 }}%</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill"
+             [style.width]="animated ? s.pct + '%' : '0%'"
+             [style.background]="'linear-gradient(90deg,' + cat.color + ', var(--accent2))'">
+          <div class="bar-glow" [style.background]="cat.color"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All tech as cloud below -->
+  <div class="all-skills">
+    <div class="as-label">Full Technology Stack</div>
+    <div class="as-cloud">
+      <span class="as-chip" *ngFor="let tech of [
+        '.NET Core 8','C#','Angular 19','TypeScript','Go (Golang)','Python','JavaScript','Java',
+        'MS SQL Server','SQLite','RESTful APIs','WebSocket','Mistral AI','Razorpay','Twilio',
+        'Scriban','Chart.js','RBAC','Cron Jobs','OTP Auth','Angular Material','React','Django',
+        'Visual Studio'
+      ]">{{ tech }}</span>
+    </div>
+  </div>
+</section>
