@@ -13,9 +13,6 @@
 
       <div class="contact-items">
         <a class="contact-item" *ngFor="let c of contacts" [href]="c.href" [style.--c]="c.color">
-          <div class="ci-icon-wrap" [style.background]="c.color + '15'" [style.border-color]="c.color + '30'">
-            {{ c.icon }}
-          </div>
           <div class="ci-text">
             <span class="ci-label">{{ c.label }}</span>
             <span class="ci-value">{{ c.value }}</span>
@@ -24,15 +21,7 @@
         </a>
       </div>
 
-      <div class="social-row">
-        <span class="social-label">Find me on</span>
-        <div class="socials">
-          <a *ngFor="let s of socials" [href]="s.href" target="_blank"
-             class="social-btn" [style.--c]="s.color" [title]="s.label">
-            <span [innerHTML]="s.svg"></span>
-          </a>
-        </div>
-      </div>
+
 
       <!-- Terminal-style availability card -->
       <div class="terminal-card">
@@ -58,35 +47,42 @@
       <div class="form-card">
         <div class="form-success" *ngIf="sent">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Opening your email client... Thanks for reaching out!
+          Message sent successfully!
+        </div>
+        
+        <div class="form-error" *ngIf="errorMsg" style="color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          {{ errorMsg }}
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label>Name</label>
-            <input type="text" [(ngModel)]="form.name" name="fname" placeholder="John Doe" required>
+            <input type="text" [(ngModel)]="form.name" name="fname" placeholder="John Doe" required [disabled]="isBlocked">
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" [(ngModel)]="form.email" name="femail" placeholder="john@company.com" required>
+            <input type="email" [(ngModel)]="form.email" name="femail" placeholder="john@company.com" required [disabled]="isBlocked">
           </div>
         </div>
 
         <div class="form-group">
           <label>Subject</label>
-          <input type="text" [(ngModel)]="form.subject" name="fsubject" placeholder="Let's work together">
+          <input type="text" [(ngModel)]="form.subject" name="fsubject" placeholder="Let's work together" [disabled]="isBlocked">
         </div>
 
         <div class="form-group">
           <label>Message</label>
           <textarea [(ngModel)]="form.message" name="fmessage" rows="6"
-            placeholder="Tell me about your project, timeline, and goals..."></textarea>
+            placeholder="Tell me about your project, timeline, and goals..." [disabled]="isBlocked"></textarea>
         </div>
 
         <button class="submit-btn" (click)="onSubmit()"
-                [disabled]="!form.name || !form.email || !form.message">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Send Message
+                [disabled]="!form.name || !form.email || !form.message || isSending || isBlocked">
+          <svg *ngIf="!isSending && !isBlocked" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span *ngIf="!isSending && !isBlocked">Send Message</span>
+          <span *ngIf="isSending">Sending...</span>
+          <span *ngIf="isBlocked">Blocked</span>
         </button>
       </div>
     </div>

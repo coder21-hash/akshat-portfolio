@@ -1,6 +1,8 @@
 .about-section { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); z-index: 1; }
 
-.about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start; margin-bottom: 60px; }
+.about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: center; margin-bottom: 60px; }
+
+.about-left { display: flex; justify-content: center; width: 100%; }
 
 .about-photo-wrap {
   position: relative; display: inline-block;

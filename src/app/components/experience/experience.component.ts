@@ -61,7 +61,7 @@ export class ExperienceComponent {
       stack: ['Python', 'scikit-learn', 'TF-IDF', 'NLP', 'pandas', 'NumPy'],
       achievements: [
         { metric: 'F1', desc: 'score optimized via hyperparameter tuning' },
-        { metric: '4+', desc: 'ML models benchmarked (LR, RF, SVM, NN)' },
+        { metric: '4', desc: 'ML models benchmarked (LR, RF, SVM, NN)' },
       ],
       points: [
         'Engineered a Fake News Detection system using NLP features: TF-IDF, sentiment analysis, and readability scores.',

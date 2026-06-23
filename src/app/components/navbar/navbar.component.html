@@ -12,7 +12,7 @@
         [class.active]="activeSection === item.id"
         (click)="scrollTo(item.id)"
         [title]="item.label">
-      <span class="nav-icon" [innerHTML]="item.icon"></span>
+      <span class="nav-icon">{{ item.label.charAt(0) }}</span>
       <span class="nav-tooltip">{{ item.label }}</span>
       <span class="active-indicator" *ngIf="activeSection === item.id"></span>
     </li>

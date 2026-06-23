@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap');
+
 
 :root {
   --bg: #0a0a0a;
@@ -19,7 +19,7 @@
   --radius: 12px;
   --radius-lg: 20px;
   --nav-w: 80px;
-  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother Framer-style ease */
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -46,6 +46,9 @@ a { text-decoration:none; color:inherit; }
   margin-left:var(--nav-w);
   flex:1;
   position:relative;
+  /* 4k responsiveness */
+  max-width: 2560px;
+  margin-right: auto;
 }
 
 /* Section basics */
@@ -69,15 +72,16 @@ a { text-decoration:none; color:inherit; }
   display:flex;
   align-items:center;
   gap:12px;
-  &::before { content:'//'; color:var(--text3); }
 }
+.sec-tag::before { content:'//'; color:var(--text3); }
+
 .sec-title {
   font-size:clamp(36px,5vw,56px);
   font-weight:800;
   line-height:1.1;
   margin-bottom:60px;
-  span { color:var(--accent); }
 }
+.sec-title span { color:var(--accent); }
 
 /* Accent line */
 .accent-line {
@@ -110,12 +114,66 @@ a { text-decoration:none; color:inherit; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 @keyframes glow-pulse { 0%,100%{box-shadow:0 0 20px rgba(0,255,136,0.2)} 50%{box-shadow:0 0 50px rgba(0,255,136,0.5)} }
 @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* Framer-style spring entrance */
+@keyframes springUp {
+  0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(-5px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeUp { 
+  from{opacity:0;transform:translateY(30px)} 
+  to{opacity:1;transform:translateY(0)} 
+}
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 @keyframes scan { 0%{top:-100%} 100%{top:100%} }
 
-.fade-up { animation:fadeUp 0.7s ease forwards; }
-@for $i from 1 through 10 { .delay-#{$i} { animation-delay: #{$i * 0.1}s; opacity:0; } }
+/* Adding smoother entrances for elements */
+.fade-up { 
+  animation: springUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+  opacity: 0;
+}
+
+/* Global scroll reveal classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
+.delay-9 { animation-delay: 0.9s; }
+.delay-10 { animation-delay: 1.0s; }
+
+/* Elegant hover transitions globally */
+button, a, .project-card, .stat-card, .contact-item, .skill-row, .badge {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.project-card:hover, .stat-card:hover, .badge:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,255,136,0.1);
+}
+
+.contact-item:hover, .skill-row:hover, .metric-chip:hover {
+  transform: translateX(6px);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+}
 
 @media (max-width:1024px) { .section { padding:80px 40px 60px; } }
 @media (max-width:768px) {

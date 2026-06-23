@@ -27,16 +27,7 @@
 .ci-value { font-size: 13px; color: var(--text); font-weight: 500; }
 .ci-arrow { color: var(--text3); opacity: 0; transform: translateX(-4px); transition: all var(--transition); flex-shrink: 0; }
 
-.social-row { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
-.social-label { font-family: var(--mono); font-size: 11px; color: var(--text3); }
-.socials { display: flex; gap: 12px; }
-.social-btn {
-  width: 44px; height: 44px; border-radius: 10px;
-  background: var(--card); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text3); transition: all var(--transition);
-  &:hover { color: var(--c); border-color: color-mix(in srgb, var(--c) 40%, transparent); background: rgba(0,0,0,0.4); transform: translateY(-2px); }
-}
+
 
 /* Terminal card */
 .terminal-card {

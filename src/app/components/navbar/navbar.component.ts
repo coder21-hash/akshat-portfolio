@@ -13,12 +13,12 @@ export class NavbarComponent {
   menuOpen = false;
 
   navItems = [
-    { id: 'home', icon: '⌂', label: 'Home' },
-    { id: 'about', icon: '◉', label: 'About' },
-    { id: 'skills', icon: '◈', label: 'Skills' },
-    { id: 'experience', icon: '◎', label: 'Exp' },
-    { id: 'projects', icon: '◆', label: 'Work' },
-    { id: 'contact', icon: '◻', label: 'Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Exp' },
+    { id: 'projects', label: 'Work' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   socials = [
