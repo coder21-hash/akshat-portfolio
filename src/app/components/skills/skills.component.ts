@@ -14,7 +14,7 @@ export class SkillsComponent implements AfterViewInit {
 
   categories = [
     {
-      name: 'Backend', icon: '⚙️', color: '#512bd4',
+      name: 'Backend', color: '#8b5cf6',
       skills: [
         { name: '.NET Core 8', pct: 92, tag: 'Primary' },
         { name: 'C#', pct: 90, tag: '' },
@@ -25,7 +25,7 @@ export class SkillsComponent implements AfterViewInit {
       ]
     },
     {
-      name: 'Frontend', icon: '🖥️', color: '#dd1b16',
+      name: 'Frontend', color: '#ef4444',
       skills: [
         { name: 'Angular 19', pct: 88, tag: 'Primary' },
         { name: 'TypeScript', pct: 85, tag: '' },
@@ -36,7 +36,7 @@ export class SkillsComponent implements AfterViewInit {
       ]
     },
     {
-      name: 'Database & Tools', icon: '🗄️', color: '#cc2927',
+      name: 'Database & Tools', color: '#f87171',
       skills: [
         { name: 'MS SQL Server', pct: 86, tag: 'Primary' },
         { name: 'Scriban Templating', pct: 76, tag: '' },
@@ -45,7 +45,7 @@ export class SkillsComponent implements AfterViewInit {
       ]
     },
     {
-      name: 'Integrations & AI', icon: '🤖', color: '#ff7000',
+      name: 'Integrations & AI', color: '#fb923c',
       skills: [
         { name: 'Mistral AI', pct: 78, tag: 'Experience' },
         { name: 'Razorpay / Webhooks', pct: 76, tag: '' },

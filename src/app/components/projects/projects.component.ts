@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 export class ProjectsComponent {
   projects = [
     {
-      emoji: '🚢',
       title: 'Cargo & Shipment Management System',
       desc: 'Enterprise logistics platform with AI-powered PDF extraction, real-time cargo tracking, RBAC security, and automated invoice generation pipeline.',
       tags: ['.NET Core 8', 'Angular', 'MS SQL Server', 'Mistral AI', 'Scriban', 'RBAC'],
@@ -20,7 +19,6 @@ export class ProjectsComponent {
       featured: true,
     },
     {
-      emoji: '🛒',
       title: 'E-Commerce Application',
       desc: 'Full-featured Go-powered store with Razorpay payment gateway, real-time admin dashboard via WebSocket, WhatsApp order notifications via Twilio, and cron-triggered email campaigns.',
       tags: ['Go (Golang)', 'Angular', 'Angular Material', 'Razorpay', 'Twilio', 'WebSocket', 'SMTP'],
@@ -29,7 +27,6 @@ export class ProjectsComponent {
       featured: true,
     },
     {
-      emoji: '💰',
       title: 'Personal Expense Tracker',
       desc: 'Full-stack personal finance app with OTP-based authentication, Chart.js spending analytics by category, and on-demand PDF report generation.',
       tags: ['.NET Core', 'Angular', 'MS SQL Server', 'Chart.js', 'Scriban', 'OTP'],
@@ -38,7 +35,6 @@ export class ProjectsComponent {
       featured: false,
     },
     {
-      emoji: '✈️',
       title: 'Travelo – Travel Booking App',
       desc: 'Django-powered destination booking platform with user authentication, travel package management, responsive search/filter UI, and real-time itinerary updates.',
       tags: ['Python', 'Django', 'HTML5', 'CSS3', 'JavaScript', 'SQLite'],

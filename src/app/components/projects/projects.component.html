@@ -8,19 +8,22 @@
       <div class="pc-glow"></div>
       <div class="pc-top-bar" [style.background]="p.color"></div>
       <div class="pc-header">
-        <span class="pc-emoji">{{ p.emoji }} </span>
         <span class="pc-badge">Featured</span>
       </div>
       <h3 class="pc-title">{{ p.title }}</h3>
       <p class="pc-desc">{{ p.desc }}</p>
-      <div class="pc-metrics">
-        <span class="metric-chip" *ngFor="let m of p.metrics">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-          {{ m }}
+      <div class="pc-tags-highlight">
+        <span class="tech-chip" *ngFor="let t of p.tags" [style.color]="p.color" [style.background]="p.color + '15'" [style.border-color]="p.color + '40'">
+          {{ t }}
         </span>
       </div>
-      <div class="pc-tags">
-        <span class="tag-item" *ngFor="let t of p.tags">{{ t }}</span>
+      <div class="pc-features">
+        <span class="feature-item" *ngFor="let m of p.metrics">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+          {{ m }}
+        </span>
       </div>
     </div>
   </div>
@@ -29,19 +32,20 @@
     <div class="project-card featured" *ngFor="let p of projects.slice(2)" [style.--c]="p.color">
       <div class="pc-glow"></div>
       <div class="pc-top-bar" [style.background]="p.color"></div>
-      <div class="pc-header">
-        <span class="pc-emoji">{{ p.emoji }}</span>
-      </div>
       <h3 class="pc-title">{{ p.title }}</h3>
       <p class="pc-desc">{{ p.desc }}</p>
-      <div class="pc-metrics">
-        <span class="metric-chip" *ngFor="let m of p.metrics">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-          {{ m }}
+      <div class="pc-tags-highlight">
+        <span class="tech-chip" *ngFor="let t of p.tags" [style.color]="p.color" [style.background]="p.color + '15'" [style.border-color]="p.color + '40'">
+          {{ t }}
         </span>
       </div>
-      <div class="pc-tags">
-        <span class="tag-item" *ngFor="let t of p.tags">{{ t }}</span>
+      <div class="pc-features">
+        <span class="feature-item" *ngFor="let m of p.metrics">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+          {{ m }}
+        </span>
       </div>
     </div>
   </div>

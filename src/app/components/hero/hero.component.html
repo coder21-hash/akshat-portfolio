@@ -4,7 +4,7 @@
     <div class="hero-left">
       <div class="greeting fade-up delay-1">
         <span class="greeting-line"></span>
-        <span class="greeting-text">PORTFOLIO 2025</span>
+        <span class="greeting-text">PORTFOLIO {{ year }}</span>
       </div>
 
       <h1 class="hero-name fade-up delay-2">
@@ -32,7 +32,7 @@
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
-          <span class="stat-n">4<span class="stat-sup">+</span></span>
+          <span class="stat-n">4</span>
           <span class="stat-l">Projects</span>
         </div>
         <div class="stat-sep"></div>
@@ -50,13 +50,20 @@
       <div class="hero-btns fade-up delay-6">
         <button class="btn-primary" (click)="scrollTo('projects')">
           <span>View My Work</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
         </button>
         <button class="btn-outline" (click)="scrollTo('contact')">
           Let's Talk
         </button>
         <button class="btn-ghost" (click)="downloadCV()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
           Resume
         </button>
       </div>
@@ -72,7 +79,7 @@
         <!-- Photo -->
         <div class="photo-frame">
           <img src="assets/images/profile.png" alt="Akshat Shah"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="photo-initials">AS</div>
         </div>
         <!-- Orbit dots -->
@@ -81,16 +88,22 @@
         <div class="orbit-dot d3"></div>
         <!-- Floating badges -->
         <div class="badge b1">
-          <span class="b-icon">⚡</span>
-          <div><div class="b-title">.NET Core 8</div><div class="b-sub">Backend</div></div>
+          <div>
+            <div class="b-title">.NET Core 8</div>
+            <div class="b-sub">Backend</div>
+          </div>
         </div>
         <div class="badge b2">
-          <span class="b-icon">🅰️</span>
-          <div><div class="b-title">Angular 19</div><div class="b-sub">Frontend</div></div>
+          <div>
+            <div class="b-title">Angular 19</div>
+            <div class="b-sub">Frontend</div>
+          </div>
         </div>
         <div class="badge b3">
-          <span class="b-icon">🤖</span>
-          <div><div class="b-title">Mistral AI</div><div class="b-sub">Integrated</div></div>
+          <div>
+            <div class="b-title">Mistral AI</div>
+            <div class="b-sub">Integrated</div>
+          </div>
         </div>
       </div>
     </div>

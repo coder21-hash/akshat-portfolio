@@ -17,6 +17,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   timer: any;
   showCursor = true;
   cursorTimer: any;
+  year = new Date().getFullYear();
 
   ngOnInit() {
     this.typeEffect();
